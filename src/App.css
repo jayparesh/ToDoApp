@@ -29,6 +29,26 @@ h1 {
   color: #222f3e;
 }
 
+.todosection {
+  width: 100%;
+  height: 46px;
+  display: flex;
+  justify-content: space-around;
+  border-bottom: 1px solid #222f3e;
+  margin-bottom: 18px;
+  position: relative;
+}
+
+.todosection::after {
+  content: "";
+  width: 100%;
+  height: 8px;
+  background-color: white;
+  position: absolute;
+  bottom: -9px;
+  left: 0;
+}
+
 button {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -38,6 +58,25 @@ button {
   cursor: pointer;
   position: relative;
   outline: none;
+}
+
+.todosection button {
+  height: 100%;
+  width: 10ch;
+  font-weight: 600;
+  font-size: 15px;
+  color: #222f3e;
+}
+
+.todosection button:hover::before {
+  content: "";
+  width: 100%;
+  height: 8px;
+  border-radius: 99px;
+  background-color: #ee5253;
+  position: absolute;
+  bottom: -5px;
+  left: 0;
 }
 
 form {
@@ -70,6 +109,39 @@ input[type="submit"] {
   color: white;
 }
 
+.todo-item {
+  margin-bottom: 1.5em;
+  display: flex;
+}
+
+label {
+  display: block;
+  font-weight: 500;
+  font-size: 18px;
+  color: #222f3e;
+  padding-left: 35px;
+  cursor: pointer;
+  position: relative;
+  flex-grow: 1;
+}
+
+input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  position: absolute;
+  top: 2px;
+  left: 0;
+  height: 21px;
+  width: 21px;
+  border: 1px solid #222f3e;
+}
+
 label:hover input ~ .checkmark {
   background-color: #ee5253;
 }
@@ -100,24 +172,26 @@ label .checkmark::after {
 .hidden {
   display: none;
 }
-
-label {
-  display: block;
-  font-weight: 500;
-  font-size: 18px;
-  color: #222f3e;
-  padding-left: 35px;
-  cursor: pointer;
-  position: relative;
-  flex-grow: 1;
+.todosection button.highlighted::before {
+  content: "";
+  width: 100%;
+  height: 8px;
+  border-radius: 99px;
+  background-color: #ee5253;
+  position: absolute;
+  bottom: -5px;
+  left: 0;
 }
 
-input[type="checkbox"] {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-  height: 0;
-  width: 0;
+.todosection button.highlighted:hover::before {
+  background-color: #ee5253;
+}
+
+.todo-item svg {
+  fill: #222f3e;
+}
+.todo-item button:hover svg {
+  fill: #ee5253;
 }
 
 .delete-all {

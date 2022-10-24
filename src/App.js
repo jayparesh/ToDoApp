@@ -58,17 +58,14 @@ class App extends React.Component {
   displayAll = () => {
     this.setState({ status: "all", todoList: [...this.state.todos] })
   }
-
   displayActive = () => {
     const activeTodos = [...this.state.todos].filter(todo => !todo.completed)
     this.setState({ status: "active", todoList: activeTodos })
   }
-
   displayCompleted = () => {
     const completedTodos = [...this.state.todos].filter(todo => todo.completed)
     this.setState({ status: "completed", todoList: completedTodos })
   }
-
   deleteTodo = todo => {
     let newTodos = [...this.state.todos].filter(item => item !== todo)
     const newDisplayedTodos = [...newTodos].filter(todo => todo.completed)
@@ -83,6 +80,27 @@ class App extends React.Component {
     return (
       <div className="mainapp">
         <h1>Internship Assignment 2</h1>
+
+        <div className="todosection">
+          <button
+            onClick={this.displayAll}
+            className={this.state.status === "all" ? "highlighted" : ""}
+          >
+            All
+          </button>
+          <button
+            onClick={this.displayActive}
+            className={this.state.status === "active" ? "highlighted" : ""}
+          >
+            Active
+          </button>
+          <button
+            onClick={this.displayCompleted}
+            className={this.state.status === "completed" ? "highlighted" : ""}
+          >
+            Completed
+          </button>
+        </div>
 
         <form
           onSubmit={this.handleSubmit}
