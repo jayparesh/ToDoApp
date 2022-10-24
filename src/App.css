@@ -88,3 +88,17 @@ input[type="checkbox"] {
   height: 0;
   width: 0;
 }
+
+.delete-all {
+  float: right;
+  background-color: #ee5253;
+  padding: 13px 26px 13px 22px;
+  color: white;
+  font-weight: 600;
+}
+
+.delete-all svg {
+  fill: white;
+  margin-right: .5em;
+  vertical-align: bottom;
+}
