@@ -70,6 +70,37 @@ input[type="submit"] {
   color: white;
 }
 
+label:hover input ~ .checkmark {
+  background-color: #ee5253;
+}
+
+label input:checked ~ .checkmark {
+  background-color: #ee5253;
+}
+
+label .checkmark::after {
+  content: "";
+  position: absolute;
+  left: 7px;
+  top: 3px;
+  width: 6px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.completed {
+  text-decoration: line-through;
+  color: #222f3e;
+}
+
+.hidden {
+  display: none;
+}
+
 label {
   display: block;
   font-weight: 500;
