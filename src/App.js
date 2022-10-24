@@ -35,6 +35,26 @@ class App extends React.Component {
     }
   }
 
+  handleInputChange = e => {
+    this.setState({ formValue: e.target.value })
+  }
+
+  handleCheckChange = todo => {
+    const todoIndex = this.state.todos.indexOf(todo)
+    const newTodos = [...this.state.todos]
+    newTodos[todoIndex].completed = !newTodos[todoIndex].completed
+    this.setState({ todos: newTodos })
+    if (this.state.status === "all") {
+      this.setState({ todoList: [...newTodos] })
+    } else if (this.state.status === "active") {
+      const activeTodos = [...newTodos].filter(todo => !todo.completed)
+      this.setState({ todoList: activeTodos })
+    } else if (this.state.status === "completed") {
+      const completedTodos = [...newTodos].filter(todo => todo.completed)
+      this.setState({ todoList: completedTodos })
+    }
+  }
+
   render() {
     return (
       <div className="mainapp">
