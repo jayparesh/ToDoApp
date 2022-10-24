@@ -55,6 +55,20 @@ class App extends React.Component {
     }
   }
 
+  displayAll = () => {
+    this.setState({ status: "all", todoList: [...this.state.todos] })
+  }
+
+  displayActive = () => {
+    const activeTodos = [...this.state.todos].filter(todo => !todo.completed)
+    this.setState({ status: "active", todoList: activeTodos })
+  }
+
+  displayCompleted = () => {
+    const completedTodos = [...this.state.todos].filter(todo => todo.completed)
+    this.setState({ status: "completed", todoList: completedTodos })
+  }
+
   render() {
     return (
       <div className="mainapp">
