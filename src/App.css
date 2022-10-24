@@ -69,3 +69,22 @@ input[type="submit"] {
   font-size: 15px;
   color: white;
 }
+
+label {
+  display: block;
+  font-weight: 500;
+  font-size: 18px;
+  color: #222f3e;
+  padding-left: 35px;
+  cursor: pointer;
+  position: relative;
+  flex-grow: 1;
+}
+
+input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
